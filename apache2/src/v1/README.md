@@ -19,3 +19,12 @@ docker attach apache2:v1
 docker inspect -f "{{ .NetworkSettings.IPAddress }}" apache2
 ssh 172.17.0.2
 ping –c 3 172.17.0.2
+
+### clean-up
+docker container ls --all
+docker stop <container-id>
+docker rm <container-id>
+
+docker image ls 
+docker rmi apache2:v1
+docker rmi ubuntu
