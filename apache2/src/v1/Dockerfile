@@ -29,19 +29,6 @@ RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
     s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
 ' '{}' ';'
 
-# COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-# Enabling ssl
-# COPY sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-# RUN a2ensite default-ssl
-# RUN a2enmod ssl
-
-# COPY sites-available/statuspage.conf /etc/apache2/sites-available/statuspage.conf
-# RUN a2ensite statuspage
-
-#VOLUME /etc/apache2 /etc/ssl /var/log/apache2 /var/www/html
-
-
 EXPOSE 80 443 8001
 
 CMD apache2 -DFOREGROUND

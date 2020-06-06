@@ -1,0 +1,14 @@
+### build
+cd apache2/src/v2
+docker build -t apache2:v2 .
+
+### run
+docker run -d --name apache2 -P apache2:v2
+docker run -d --name apache2 -p 8088:80 apache2:v2
+
+### play from the host
+curl -I HEAD http://localhost:8088
+curl -X GET http://localhost:8088
+
+### access the container
+docker run -it apache2:v2 /bin/bash
