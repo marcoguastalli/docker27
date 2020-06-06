@@ -2,4 +2,5 @@
 some docker images
 
 ### a bit of knowledge
-https://www.html.it/pag/65972/dockerfile/
+https://docs.docker.com/
+https://docs.docker.com/engine/reference/builder/
