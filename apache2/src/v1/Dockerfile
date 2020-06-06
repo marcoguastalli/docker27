@@ -2,9 +2,12 @@
 FROM ubuntu:20.04
 
 MAINTAINER marcoguastalli
+# Inspired by the enonicio/apache2 image ##
 
+# no input required
 ARG DEBIAN_FRONTEND=noninteractive
 
+# install apache2
 RUN apt-get update && apt-get install -y apache2
 
 # let's copy a few of the settings from /etc/init.d/apache2
@@ -19,16 +22,17 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_LOG_DIR /var/log/apache2
 ENV LANG C
 
-# ...
+# create directories
 RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 
-# make CustomLog (access log) go to stdout instead of files
-#  and ErrorLog to stderr
+# make CustomLog (access log) go to stdout instead of files and ErrorLog to stderr
 RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
     s!^(\s*CustomLog)\s+\S+!\1 /proc/self/fd/1!g; \
     s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
 ' '{}' ';'
 
+# expose ports
 EXPOSE 80 443 8001
 
+# run
 CMD apache2 -DFOREGROUND
