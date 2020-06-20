@@ -36,6 +36,10 @@ COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.c
 COPY www/images /var/www/html/images
 COPY www/*.html /var/www/html/
 
+# enable rewrite rules
+COPY www/.htaccess /var/www/html/.htaccess
+RUN a2enmod rewrite
+
 # expose ports
 EXPOSE 80 443 8005
 

@@ -12,3 +12,8 @@ curl -X GET http://localhost:8005 (login is returned)
 ### endpoints
 http://localhost:8005/index.html
 http://localhost:8005/login.html
+
+http://localhost:8005/welcome
+http://localhost:8005/login
+http://localhost:8005/l301
+http://localhost:8005/pt301

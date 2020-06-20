@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    SetEnv HTTP_MOD_REWRITE On
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # The rest of your rewrite rules here
+    RewriteRule ^login$ login.html [L]
+    RewriteRule ^welcome$ login.html [PT]
+
+    RewriteRule ^/l301$ http://localhost:8005/login.html [R=301,L]
+    RewriteRule ^/pt301$ http://localhost:8005/login.html [R=301,PT]
+</IfModule>
