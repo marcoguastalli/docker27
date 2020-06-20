@@ -32,6 +32,8 @@ RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
 ' '{}' ';'
 
 # enabling ssl
+COPY ssl/apache.crt /etc/apache2/ssl/apache.crt
+COPY ssl/apache.key /etc/apache2/ssl/apache.key
 COPY sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 RUN a2ensite default-ssl
 RUN a2enmod ssl
@@ -41,7 +43,7 @@ COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.c
 COPY www/*.html /var/www/html/
 
 # expose ports
-EXPOSE 80 443 8001
+EXPOSE 80 443 8004
 
 # run
 CMD apache2 -DFOREGROUND
