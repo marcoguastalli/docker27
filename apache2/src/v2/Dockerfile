@@ -36,7 +36,7 @@ COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.c
 COPY www/index.html /var/www/html/index.html
 
 # Enabling ssl
-# COPY sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+# COPY sites-available/marco27.net.ssl.conf /etc/apache2/sites-available/marco27.net.ssl.conf
 # RUN a2ensite default-ssl
 # RUN a2enmod ssl
 

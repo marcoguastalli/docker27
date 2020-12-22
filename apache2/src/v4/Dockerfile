@@ -31,16 +31,21 @@ RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
     s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
 ' '{}' ';'
 
-# enabling ssl
-COPY ssl/apache.crt /etc/apache2/ssl/apache.crt
-COPY ssl/apache.key /etc/apache2/ssl/apache.key
-COPY sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-RUN a2ensite default-ssl
-RUN a2enmod ssl
-
-# default site
-COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+# copy conf
+#COPY ssl/apache.crt /etc/ssl/certs/apache.crt
+#COPY ssl/apache.key /etc/ssl/certs/apache.key
+COPY sites-available/marco27.net.conf /etc/apache2/sites-available/marco27.net.conf
+COPY sites-available/marco27.net.ssl.conf /etc/apache2/sites-available/marco27.net.ssl.conf
+COPY www/images /var/www/html/images
 COPY www/*.html /var/www/html/
+
+# disable default site
+RUN a2dissite 000-default.conf
+RUN a2dissite default-ssl
+# enable marco27 with ssl
+RUN a2ensite marco27.net.conf
+RUN a2ensite marco27.net.ssl.conf
+RUN a2enmod ssl
 
 # expose ports
 EXPOSE 80 443 8004

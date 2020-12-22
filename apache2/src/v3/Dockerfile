@@ -36,16 +36,6 @@ COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.c
 COPY www/images /var/www/html/images
 COPY www/*.html /var/www/html/
 
-# Enabling ssl
-# COPY sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-# RUN a2ensite default-ssl
-# RUN a2enmod ssl
-
-# COPY sites-available/statuspage.conf /etc/apache2/sites-available/statuspage.conf
-# RUN a2ensite statuspage
-
-#VOLUME /etc/apache2 /etc/ssl /var/log/apache2 /var/www/html
-
 # expose ports
 EXPOSE 80 443 8001
 
