@@ -1,10 +1,5 @@
-#
-# NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
-#
-# PLEASE DO NOT EDIT IT DIRECTLY.
-#
-
-FROM buildpack-deps:buster
+# Base image
+FROM buildpack-deps:focal
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
