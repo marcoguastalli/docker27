@@ -1,5 +1,5 @@
 # Base image
-FROM buildpack-deps:focal
+FROM marco27/ubudev27:v1
 
 MAINTAINER marcoguastalli
 
