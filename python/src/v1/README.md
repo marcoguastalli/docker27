@@ -4,3 +4,6 @@ docker build -t python:v1 .
 
 ### run
 docker run -d --name python -P python:v1
+
+### access the container
+docker run -it python:v1 /bin/bash
