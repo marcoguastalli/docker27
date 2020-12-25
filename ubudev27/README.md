@@ -1,17 +1,15 @@
-# openjdk
+# ubudev27
 here some links inspired me to write the Dockerfile
 
+### scratch
+https://hub.docker.com/_/scratch
+### buildpack-deps
+https://hub.docker.com/_/buildpack-deps/
 ### adoptopenjdk
 https://hub.docker.com/_/adoptopenjdk
 https://github.com/AdoptOpenJDK/openjdk-docker
 https://github.com/AdoptOpenJDK/openjdk-docker/blob/master/11/jdk/ubuntu/Dockerfile.hotspot.releases.full
-
-### build
-cd openjdk/src/v1
-docker build -t openjdk:v1 .
-
-### run
-docker run -d --name openjdk openjdk:v1
-
-### access the container
-docker run -it openjdk:v1 /bin/bash
+### maven
+https://hub.docker.com/_/maven
+### gitpod
+https://github.com/gitpod-io/gitpod

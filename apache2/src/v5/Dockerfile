@@ -31,17 +31,25 @@ RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
     s!^(\s*ErrorLog)\s+\S+!\1 /proc/self/fd/2!g; \
 ' '{}' ';'
 
-# default site
-COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+# copy conf
+COPY sites-available/marco27.net.conf /etc/apache2/sites-available/marco27.net.conf
+COPY sites-available/marco27.net.ssl.conf /etc/apache2/sites-available/marco27.net.ssl.conf
 COPY www/images /var/www/html/images
 COPY www/*.html /var/www/html/
-
-# enable rewrite rules
 COPY www/.htaccess /var/www/html/.htaccess
+
+# disable default site
+RUN a2dissite 000-default.conf
+RUN a2dissite default-ssl
+# enable marco27 with ssl
+RUN a2ensite marco27.net.conf
+RUN a2ensite marco27.net.ssl.conf
+RUN a2enmod ssl
+# enable rewrite rules
 RUN a2enmod rewrite
 
 # expose ports
-EXPOSE 80 443 8005
+EXPOSE 80 443 8005 8443
 
 # run
 CMD apache2 -DFOREGROUND

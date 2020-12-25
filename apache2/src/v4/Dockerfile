@@ -32,8 +32,6 @@ RUN find "$APACHE_CONFDIR" -type f -exec sed -ri ' \
 ' '{}' ';'
 
 # copy conf
-#COPY ssl/apache.crt /etc/ssl/certs/apache.crt
-#COPY ssl/apache.key /etc/ssl/certs/apache.key
 COPY sites-available/marco27.net.conf /etc/apache2/sites-available/marco27.net.conf
 COPY sites-available/marco27.net.ssl.conf /etc/apache2/sites-available/marco27.net.ssl.conf
 COPY www/images /var/www/html/images

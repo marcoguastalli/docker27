@@ -1,6 +1,3 @@
-# openjdk11tomcat9
-Open JDK 11 with Apache Tomcat 9
-
 ### build
 cd openjdk11tomcat9/src/v1
 docker build -t openjdk11tomcat9:v1 .

@@ -4,11 +4,20 @@ docker build -t python:v2 .
 
 ### run
 docker run -d --name python python:v2
-### run with volume
-docker run -d \
---name python \
--v discoD:/discoD \
-python:v2
 
 ### access the container
 docker run -it python:v2 /bin/bash
+
+### play
+python3
+
+from colorama import init
+init()
+from colorama import Fore, Back, Style
+print(Fore.RED + 'some red text')
+print(Back.GREEN + 'and with a green background')
+print(Style.DIM + 'and in dim text')
+print(Style.RESET_ALL)
+print('back to normal now')
+
+exit()
