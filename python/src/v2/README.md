@@ -5,7 +5,7 @@ docker build -t python:v2 .
 ### run
 docker run -d --name python python:v2
 
-### access the container
+### access the image as root
 docker run -it python:v2 /bin/bash
 
 ### play

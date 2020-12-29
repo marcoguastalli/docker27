@@ -6,8 +6,9 @@ docker build -t apache2ssl8005:v5 .
 docker run -d --name apache2ssl8005 -p 8005:80 -p 8443:443 apache2ssl8005:v5
 docker run -d --name apache2ssl8005 -p 8005:80 apache2ssl8005:v5
 
-### access the container
-docker run -it apache2ssl8005:v5 /bin/bash
+### access the container as root
+docker container ls --all
+docker exec -u root -t -i CONTANER-ID /bin/bash
 tail -n 500 -f /var/log/apache2/error.log
 tail -n 500 -f /var/log/apache2/access.log
 

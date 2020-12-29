@@ -46,7 +46,7 @@ RUN a2ensite marco27.net.ssl.conf
 RUN a2enmod ssl
 
 # expose ports
-EXPOSE 80 443 8004
+EXPOSE 80 443
 
 # run
 CMD apache2 -DFOREGROUND

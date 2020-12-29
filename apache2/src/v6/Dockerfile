@@ -49,7 +49,7 @@ RUN a2enmod ssl
 RUN a2enmod rewrite
 
 # expose ports
-EXPOSE 80 443
+EXPOSE 443
 
 # run
 CMD apache2 -DFOREGROUND

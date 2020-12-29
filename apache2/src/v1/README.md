@@ -10,7 +10,7 @@ docker run -d --name apache2 -p 8088:80 apache2:v1
 curl -I HEAD http://localhost:8088
 curl -X GET http://localhost:8088
 
-### access the container
+### access the image as root
 docker run -it apache2:v1 /bin/bash
 
 ### https://phoenixnap.com/kb/how-to-ssh-into-docker-container

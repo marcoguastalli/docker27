@@ -6,9 +6,9 @@ docker build -t apache2:v2 .
 docker run -d --name apache2 -P apache2:v2
 docker run -d --name apache2 -p 8088:80 apache2:v2
 
+### access the image as root
+docker run -it apache2:v2 /bin/bash
+
 ### play from the host
 curl -I HEAD http://localhost:8088
 curl -X GET http://localhost:8088
-
-### access the container
-docker run -it apache2:v2 /bin/bash

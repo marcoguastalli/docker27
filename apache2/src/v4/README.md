@@ -5,19 +5,18 @@ docker build -t apache2ssl8004:v4 .
 ### run
 docker run -d --name apache2ssl8004 -p 8004:443 apache2ssl8004:v4
 
-### access the container
+### access the image as root
 docker run -it apache2ssl8004:v4 /bin/bash
+##### install sudo curl and the firewall
 docker run -it apache2ssl8004:latest /bin/bash
   apt-get update && apt-get -y install sudo
   apt-get install curl
   apt-get install ufw
   sudo ufw enable
 
-### access the container as root:
-docker exec -u root -t -i container_id /bin/bash
+### access the container as root
 docker container ls --all
 docker exec -u root -t -i CONTANER-ID /bin/bash
-docker exec -u root -t -i 8bbf00a1a579 /bin/bash
 tail -n 500 -f /var/log/apache2/error.log
 tail -n 500 -f /var/log/apache2/access.log
 

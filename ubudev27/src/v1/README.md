@@ -5,7 +5,7 @@ docker build -t marco27/ubudev27:v1 .
 ### run
 docker run -d --name ubudev27 marco27/ubudev27:v1
 
-### access the container
+### access the image as root
 docker run -it marco27/ubudev27:v1 /bin/bash
 
 ### push

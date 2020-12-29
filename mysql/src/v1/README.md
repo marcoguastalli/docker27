@@ -10,5 +10,5 @@ docker run -d \
 -v discoD:/discoD \
 mysql:v1
 
-### access the container
+### access the image as root
 docker run -it mysql:v1 /bin/bash
