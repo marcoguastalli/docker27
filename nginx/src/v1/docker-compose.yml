@@ -7,5 +7,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - /home/marco27/dev/repository/git/docker27/nginx/src/v1/www:/var/www/marco27.net
-      - /home/marco27/dev/repository/git/docker27/nginx/src/v1/site.conf:/etc/nginx/conf.d/marco27.net.conf
+      - ./www:/var/www/marco27.net
+      - ./nginx/site.conf:/etc/nginx/conf.d/marco27.net.conf
