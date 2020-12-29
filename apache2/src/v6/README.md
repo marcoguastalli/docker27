@@ -14,9 +14,3 @@ tail -n 500 -f /var/log/apache2/access.log
 ### play
 https://localhost:8006/index.html
 https://localhost:8006/login.html
-
-https://localhost:8006/enter
-https://localhost:8006/welcome/
-https://localhost:8006/trecentouno/301
-https://localhost:8006/trecentodue/302
-https://localhost:8006/trecentotre
