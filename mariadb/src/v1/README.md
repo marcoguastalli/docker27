@@ -6,10 +6,7 @@ docker-compose up -d
 docker-compose start
 docker-compose stop
 
-### access the image as root
-
-
-### play
+## play
 http://marco27.net/
 http://marco27.net/index.html
 http://marco27.net/index.php
@@ -18,3 +15,11 @@ http://marco27.net/index.php
 http://marco27.net:8000/
 mariadb
 root:pwd
+
+##### SQL
+SELECT F.ID,
+       F.NAME,
+       P.PATH
+  FROM `mydb`.`PFS_FILE` AS F,
+       `mydb`.`PFS_PATH` AS P
+  WHERE F.ID = P.FILE_ID
