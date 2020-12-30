@@ -31,3 +31,5 @@ mongo -u local -p qwerty --authenticationDatabase admin
 mongo -u local --authenticationDatabase admin
 show dbs
 use local
+show collections
+db.dieta.find()

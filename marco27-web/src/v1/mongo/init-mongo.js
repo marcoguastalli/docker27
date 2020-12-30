@@ -10,3 +10,5 @@ db.getSiblingDB('admin')
             }
         ]
 });
+
+db.createCollection("dieta");

@@ -27,6 +27,8 @@ services:
   mariadb:
     image: mariadb:10.5
     container_name: marco27-web-mariadb
+    ports:
+      - 3306:3306
     restart: always
     command: "mysqld --init-file /data/application/init.sql"
     volumes:
