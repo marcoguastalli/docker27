@@ -76,7 +76,7 @@ services:
 
   zoo27:
     image: zookeeper:3.6
-    container_name: zoo27
+    container_name: marco27-web-zoo
     restart: always
     hostname: zoo27
     ports:
