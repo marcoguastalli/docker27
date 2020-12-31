@@ -3,7 +3,8 @@ cd nginx/src/v1
 docker-compose up -d
 
 ### run
-docker-compose up -d
+docker-compose start
+docker-compose stop
 
 ### access the image as root
 docker run -it nginx:1.19.6 /bin/bash
