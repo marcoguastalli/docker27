@@ -33,3 +33,6 @@ show dbs
 use local
 show collections
 db.dieta.find()
+
+##### Solr + Zookeeper
+http://marco27.net:8983/solr/#/
