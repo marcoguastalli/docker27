@@ -18,8 +18,6 @@ tail -n 500 -f /usr/local/tomcat/logs/localhost_access_log.<DATE>.txt
 
 /usr/local/tomcat/bin/startup.sh
 /usr/local/tomcat/bin/shutdown.sh
-/usr/local/tomcat/bin/catalina.sh jpda start
-/usr/local/tomcat/bin/catalina.sh jpda stop
 /usr/local/tomcat/bin/catalina.sh jpda run
 
 ### play

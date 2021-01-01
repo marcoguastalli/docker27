@@ -8,12 +8,15 @@ services:
     ports:
       - 8080:8080
       - 8443:8443
-      - 8100:8100
+      - 8000:8000
     environment:
-      - PDA_TRANSPORT=dt_socket
-      - JPDA_ADDRESS=8100
-      - JPDA_SUSPEND=n
+      - JPDA_ADDRESS=8000
+      - JPDA_TRANSPORT=dt_socket
     volumes:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
       - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:rw
       - ./war/examples:/usr/local/tomcat/webapps/examples
+    command:
+      - catalina.sh
+      - jpda
+      - run
