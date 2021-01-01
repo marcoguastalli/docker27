@@ -16,6 +16,12 @@ cd /usr/local/tomcat/logs
 tail -n 500 -f /usr/local/tomcat/logs/catalina.<DATE>.log
 tail -n 500 -f /usr/local/tomcat/logs/localhost_access_log.<DATE>.txt
 
+/usr/local/tomcat/bin/startup.sh
+/usr/local/tomcat/bin/shutdown.sh
+/usr/local/tomcat/bin/catalina.sh jpda start
+/usr/local/tomcat/bin/catalina.sh jpda stop
+/usr/local/tomcat/bin/catalina.sh jpda run
+
 ### play
 http://localhost:8080/
 http://localhost:8080/examples/

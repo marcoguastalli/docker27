@@ -2,9 +2,9 @@ version: "3.7"
 
 services:
 
-  tomcat:
-    image: tomcat:10.0.0-jdk11-openjdk
-    container_name: tomcat-10
+  tomee:
+    image: tomee:11-jre-8.0.5-plume
+    container_name: tomee-8
     ports:
       - 8080:8080
       - 8443:8443
@@ -16,4 +16,3 @@ services:
     volumes:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
       - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:rw
-      - ./war/examples:/usr/local/tomcat/webapps/examples
