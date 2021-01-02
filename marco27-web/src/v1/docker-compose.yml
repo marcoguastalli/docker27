@@ -67,11 +67,34 @@ services:
       - 27017-27019:27017-27019
     environment:
       - MONGO_INITDB_DATABASE=local
-      - MONGO_INITDB_ROOT_USERNAME=local
+      - MONGO_INITDB_ROOT_USERNAME=mongo-admin
       - MONGO_INITDB_ROOT_PASSWORD=qwerty
     volumes:
       - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
       - ./mongodb-data:/data/db
+
+  mongo-express:
+    image: mongo-express:0.54.0
+    container_name: marco27-web-mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_SERVER: marco27-web-mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongo-admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: qwerty
+    depends_on:
+      - mongodb
+
+  solr-volume-initializer:
+    image: alpine
+    container_name: marco27-web-solr-volume-initializer
+    restart: "no"
+    entrypoint: |
+      /bin/sh -c "chown 8983:8983 /var/solr"
+    volumes:
+      - ./solr-data:/var/solr
 
   solr27:
     image: solr:8.7
@@ -82,12 +105,15 @@ services:
       - ZK_HOST=zoo27:2181
     networks:
       - solr
+    volumes:
+      - ./solr-data:/var/solr
     depends_on:
+      - solr-volume-initializer
       - zoo27
 
   zoo27:
     image: zookeeper:3.6
-    container_name: marco27-web-zoo
+    container_name: marco27-web-zookeeper
     restart: always
     hostname: zoo27
     ports:
@@ -101,6 +127,7 @@ services:
 volumes:
   mariadb-data:
   mongodb-data:
+  solr-data:
 
 networks:
   solr:

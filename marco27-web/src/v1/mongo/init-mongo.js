@@ -1,14 +1,12 @@
 // db.getSiblingDB () is equivalent to use admin;
 db.getSiblingDB('admin')
     .createUser({
-        user: 'local',
+        user: 'mongo-admin',
         pwd: 'qwerty',
         roles: [
             {
-              role: "readWrite",
-              db: "local"
+              role: "userAdminAnyDatabase",
+              db: "admin"
             }
         ]
 });
-
-db.createCollection("dieta");

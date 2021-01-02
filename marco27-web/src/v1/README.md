@@ -28,12 +28,24 @@ SELECT F.ID,
 ##### MongoDB
 docker container ls
 docker exec -it CONTAINER-ID bash
+mongo -u mongo-admin -p qwerty --authenticationDatabase admin
+show dbs
+use admin
+db.createUser({user: "local", pwd: "qwerty", roles: [ { role: "readWrite", db: "local" } ]})
+show users
+exit
 mongo -u local -p qwerty --authenticationDatabase admin
-mongo -u local --authenticationDatabase admin
 show dbs
 use local
 show collections
+db.createCollection("dieta")
 db.dieta.find()
+
+##### mongo-express
+FROM node:12-alpine3.11
+WORKDIR /node_modules/mongo-express
+http://marco27.net:8001/
 
 ##### Solr + Zookeeper
 http://marco27.net:8983/solr/#/
+curl 'http://marco27.net:8983/solr/admin/collections?action=CREATE&name=printFileSystem&numShards=1&collection.configName=_default'
