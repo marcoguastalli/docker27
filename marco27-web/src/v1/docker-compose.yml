@@ -11,7 +11,18 @@ services:
       - ./www:/var/www/marco27.net
       - ./nginx/site.conf:/etc/nginx/conf.d/marco27.net.conf
     depends_on:
+      - tomcat
       - php
+
+  tomcat:
+    image: tomcat:10.0.0-jdk11-openjdk
+    container_name: marco27-web-tomcat
+    ports:
+      - 8080:8080
+    volumes:
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
+      - ./war/basewar.war:/usr/local/tomcat/webapps/basewar.war
+    depends_on:
       - mariadb
       - mongodb
       - solr27

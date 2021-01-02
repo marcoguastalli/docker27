@@ -10,6 +10,7 @@ docker-compose stop
 http://marco27.net/
 http://marco27.net/index.html
 http://marco27.net/index.php
+http://marco27.net:8080/basewar/
 
 ##### phpmyadmin
 http://marco27.net:8000/
