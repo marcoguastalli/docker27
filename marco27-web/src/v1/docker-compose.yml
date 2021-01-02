@@ -15,13 +15,13 @@ services:
       - php
 
   tomcat:
-    image: tomcat:10.0.0-jdk11-openjdk
+    image: tomcat:9.0.41-jdk11-openjdk-slim
     container_name: marco27-web-tomcat
     ports:
       - 8080:8080
     volumes:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
-      - ./war/basewar.war:/usr/local/tomcat/webapps/basewar.war
+      - ./war/marco27-web.war:/usr/local/tomcat/webapps/marco27-web.war
     depends_on:
       - mariadb
       - mongodb

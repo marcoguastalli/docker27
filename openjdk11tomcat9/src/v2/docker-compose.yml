@@ -19,7 +19,6 @@ services:
       - ./war/host-manager:/usr/local/tomcat/webapps/host-manager
       - ./war/manager:/usr/local/tomcat/webapps/manager
       - ./war/ROOT:/usr/local/tomcat/webapps/ROOT
-      #- ./war/marco27-web.war:/usr/local/tomcat/webapps/marco27-web.war
     command:
       - catalina.sh
       - jpda
