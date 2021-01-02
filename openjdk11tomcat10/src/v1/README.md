@@ -23,3 +23,6 @@ tail -n 500 -f /usr/local/tomcat/logs/localhost_access_log.<DATE>.txt
 ### play
 http://localhost:8080/
 http://localhost:8080/examples/
+##### manager
+http://localhost:8080/manager/html
+tomcat:s3cret

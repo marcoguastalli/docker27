@@ -7,15 +7,18 @@ services:
     container_name: tomcat-10
     ports:
       - 8080:8080
+      - 8005:8005
       - 8443:8443
       - 8000:8000
     environment:
       - JPDA_ADDRESS=8000
       - JPDA_TRANSPORT=dt_socket
     volumes:
-      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml:rw
-      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:rw
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./war/examples:/usr/local/tomcat/webapps/examples
+      - ./war/manager:/usr/local/tomcat/webapps/manager
+      - ./war/ROOT:/usr/local/tomcat/webapps/ROOT
     command:
       - catalina.sh
       - jpda
