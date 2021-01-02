@@ -26,3 +26,7 @@ http://localhost:8080/examples/
 ##### manager
 http://localhost:8080/manager/html
 tomcat:s3cret
+##### basewar
+http://localhost:8080/basewar/
+http://localhost:8080/basewar/?language=it
+http://localhost:8080/basewar/simpleJson
