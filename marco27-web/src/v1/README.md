@@ -44,7 +44,7 @@ db.dieta.find()
 ##### mongo-express
 FROM node:12-alpine3.11
 WORKDIR /node_modules/mongo-express
-http://marco27.net:8001/
+http://marco27.net:8081/
 
 ##### Solr + Zookeeper
 http://marco27.net:8983/solr/#/
