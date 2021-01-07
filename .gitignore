@@ -17,3 +17,4 @@ gradlew.bat
 pom.xml.versionsBackup
 mongodb-data
 solr-data
+jenkins-volume
