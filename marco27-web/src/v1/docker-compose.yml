@@ -104,7 +104,7 @@ services:
     environment:
       - ZK_HOST=zoo27:2181
     networks:
-      - solr
+      - solr-network
     volumes:
       - ./solr-data:/var/solr
     depends_on:
@@ -122,7 +122,7 @@ services:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
     networks:
-      - solr
+      - solr-network
 
 volumes:
   mariadb-data:
@@ -130,4 +130,4 @@ volumes:
   solr-data:
 
 networks:
-  solr:
+  solr-network:
