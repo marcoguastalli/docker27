@@ -13,6 +13,9 @@ services:
     depends_on:
       - tomcat
       - php
+    networks:
+      - nginx-php
+      - nginx-tomcat
 
   tomcat:
     image: tomcat:9.0.41-jdk11-openjdk-slim
@@ -26,6 +29,11 @@ services:
       - mariadb
       - mongodb
       - solr27
+    networks:
+      - nginx-tomcat
+      - tomcat-mariadb
+      - tomcat-mongodb
+      - tomcat-solr
 
   php:
     image: php:7.4-fpm
@@ -35,6 +43,9 @@ services:
       - ./php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - mariadb
+    networks:
+      - nginx-php
+      - mariadb-php-myadmin
 
   mariadb:
     image: mariadb:10.5
@@ -48,6 +59,9 @@ services:
       - ./sql/init.sql:/data/application/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: qwerty
+    networks:
+      - mariadb-php-myadmin
+      - tomcat-mariadb
 
   phpmyadmin:
     image: phpmyadmin:5.0.4
@@ -59,6 +73,8 @@ services:
       - PMA_HOST=mariadb
     depends_on:
       - mariadb
+    networks:
+      - mariadb-php-myadmin
 
   mongodb:
     image: library/mongo:4.4.2-bionic
@@ -72,6 +88,9 @@ services:
     volumes:
       - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
       - ./mongodb-data:/data/db
+    networks:
+      - mongo-mongoexpress
+      - tomcat-mongodb
 
   mongo-express:
     image: mongo-express:0.54.0
@@ -86,6 +105,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: qwerty
     depends_on:
       - mongodb
+    networks:
+      - mongo-mongoexpress
 
   solr-volume-initializer:
     image: alpine
@@ -95,6 +116,8 @@ services:
       /bin/sh -c "chown 8983:8983 /var/solr"
     volumes:
       - ./solr-data:/var/solr
+    networks:
+      - solr-zoo
 
   solr27:
     image: solr:8.7
@@ -103,13 +126,14 @@ services:
       - 8983:8983
     environment:
       - ZK_HOST=zoo27:2181
-    networks:
-      - solr-network
     volumes:
       - ./solr-data:/var/solr
     depends_on:
       - solr-volume-initializer
       - zoo27
+    networks:
+      - solr-zoo
+      - tomcat-solr
 
   zoo27:
     image: zookeeper:3.6
@@ -122,7 +146,7 @@ services:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181
     networks:
-      - solr-network
+      - solr-zoo
 
 volumes:
   mariadb-data:
@@ -130,4 +154,11 @@ volumes:
   solr-data:
 
 networks:
-  solr-network:
+  nginx-php:
+  nginx-tomcat:
+  mariadb-php-myadmin:
+  mongo-mongoexpress:
+  tomcat-mariadb:
+  tomcat-mongodb:
+  tomcat-solr:
+  solr-zoo:
