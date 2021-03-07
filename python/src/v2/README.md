@@ -1,3 +1,6 @@
+##v2
+Run a container with marco27/ubudev27:v1 and colorama
+
 ### build
 cd python/src/v2/
 docker build -t python:v2 .
