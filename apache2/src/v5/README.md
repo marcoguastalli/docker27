@@ -3,8 +3,8 @@ cd apache2/src/v5
 docker build -t apache2ssl8005:v5 .
 
 ### run
-docker run -d --name apache2ssl8005 -p 8005:80 -p 8443:443 apache2ssl8005:v5
-docker run -d --name apache2ssl8005 -p 8005:80 apache2ssl8005:v5
+docker run -d --rm --name apache2ssl8005 -p 8005:80 -p 8443:443 apache2ssl8005:v5
+docker run -d --rm --name apache2ssl8005 -p 8005:80 apache2ssl8005:v5
 
 ### access the container as root
 docker container ls --all

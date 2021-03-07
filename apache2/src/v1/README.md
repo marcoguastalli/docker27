@@ -3,8 +3,8 @@ cd apache2/src/v1
 docker build -t apache2:v1 .
 
 ### run
-docker run -d --name apache2 -P apache2:v1
-docker run -d --name apache2 -p 8088:80 apache2:v1
+docker run -d --rm --name apache2 -P apache2:v1
+docker run -d --rm --name apache2 -p 8088:80 apache2:v1
 
 ### play from the host
 curl -I HEAD http://localhost:8088

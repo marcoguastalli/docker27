@@ -3,7 +3,7 @@ cd apache2/src/v4
 docker build -t apache2ssl8004:v4 .
 
 ### run
-docker run -d --name apache2ssl8004 -p 8004:443 apache2ssl8004:v4
+docker run -d --rm --name apache2ssl8004 -p 8004:443 apache2ssl8004:v4
 
 ### access the image as root
 docker run -it apache2ssl8004:v4 /bin/bash

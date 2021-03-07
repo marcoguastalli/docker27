@@ -3,7 +3,7 @@ cd apache2/src/v6
 docker build -t apache2:v6 .
 
 ### run
-docker run -d --name apache2 -p 8006:443 apache2:v6
+docker run -d --rm --name apache2 -p 8006:443 apache2:v6
 
 ### access the container as root
 docker container ls --all

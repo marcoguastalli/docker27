@@ -3,7 +3,7 @@ cd mysql/src/v1
 docker build -t mysql:v1 .
 
 ### run
-docker run -d --name mysql mysql:v1
+docker run -d --rm --name mysql mysql:v1
 ### run with volume
 docker run -d \
 --name mysql \
