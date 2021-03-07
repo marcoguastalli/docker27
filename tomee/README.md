@@ -1,6 +1,7 @@
 # TomEE
-here some links inspired me to write the src code
+Run a container with TomEE
 
+### inspiring links
 https://hub.docker.com/_/tomee
 http://tomee.apache.org/
 https://tomee.apache.org/comparison.html

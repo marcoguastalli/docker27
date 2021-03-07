@@ -1,5 +1,6 @@
 # OpenJDK 11 Tomcat 10
-here some links inspired me to write the src code
+Run a container with Open JDK 11 with Apache Tomcat 10
 
+### inspiring links
 https://hub.docker.com/_/tomcat
 https://tomcat.apache.org/

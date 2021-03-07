@@ -1,5 +1,7 @@
 # ubudev27
-here some links inspired me to write the Dockerfile
+Run a container with the Ubuntu as OS
+
+## inspiring links
 
 ### scratch
 https://hub.docker.com/_/scratch

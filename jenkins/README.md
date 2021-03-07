@@ -1,6 +1,7 @@
 # Jenkins
-here some links inspired me to write the src code
+Run a container with the Jenkins app
 
+### inspiring links
 ¡¡deprecated!! https://hub.docker.com/_/jenkins
 https://hub.docker.com/r/jenkins/jenkins
 https://github.com/jenkinsci/docker/blob/master/README.md

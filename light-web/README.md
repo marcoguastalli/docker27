@@ -1,6 +1,7 @@
 # Light Web
-here some links inspired me to write the src code
+Run a container with Light Web
 
+### inspiring links
 https://www.lighttpd.net/
 https://hub.docker.com/r/sebp/lighttpd/
 https://hub.docker.com/r/sebp/lighttpd/dockerfile
