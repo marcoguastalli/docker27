@@ -20,7 +20,7 @@ services:
   nodejs:
     container_name: marco27-web-nodejs
     ports:
-      - 9090:9000
+      - 9000:9000
     volumes:
       - ./nodejs:/var/nodejs
     environment:

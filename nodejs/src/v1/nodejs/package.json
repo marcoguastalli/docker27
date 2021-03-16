@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "author": "@marcoguastalli",
   "description": "Node.js on Docker",
-  "main": "server.js",
   "scripts": {
     "start": "node express.js"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.17.1"
   }
 }
