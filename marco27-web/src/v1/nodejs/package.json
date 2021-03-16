@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "webpack --mode=development --progress"
+    "start": "webpack serve --mode=development --progress"
   },
   "devDependencies": {
     "webpack": "^5.26.0",

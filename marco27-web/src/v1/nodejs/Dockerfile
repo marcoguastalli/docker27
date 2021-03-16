@@ -6,6 +6,6 @@ WORKDIR /var/nodejs
 RUN apt-get -y update && apt-get -y install nodejs npm yarn webpack
 RUN npm install
 
-EXPOSE 80
+EXPOSE 9000
 
 CMD ["npm", "run", "start"]

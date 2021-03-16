@@ -19,3 +19,4 @@ pom.xml.versionsBackup
 mongodb-data
 solr-data
 jenkins-volume
+node_modules

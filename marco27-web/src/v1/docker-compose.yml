@@ -16,12 +16,11 @@ services:
     networks:
       - nginx-php
       - nginx-tomcat
-      - nginx-nodejs
 
   nodejs:
     container_name: marco27-web-nodejs
     ports:
-      - 9000:9000
+      - 9090:9000
     volumes:
       - ./nodejs:/var/nodejs
     environment:
@@ -30,10 +29,8 @@ services:
     build:
       context: ./nodejs
       dockerfile: Dockerfile
-    depends_on:
-      - nginx
     networks:
-      - nginx-nodejs
+      - nodejs
 
   tomcat:
     image: tomcat:9.0.41-jdk11-openjdk-slim
@@ -172,7 +169,7 @@ volumes:
   solr-data:
 
 networks:
-  nginx-nodejs:
+  nodejs:
   nginx-php:
   nginx-tomcat:
   mariadb-php-myadmin:
