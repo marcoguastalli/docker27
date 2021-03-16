@@ -1,8 +1,8 @@
 {
   "name": "nodejs-v1",
   "version": "1.0.0",
-  "description": "Node.js on Docker",
   "author": "@marcoguastalli",
+  "description": "Node.js on Docker",
   "main": "server.js",
   "scripts": {
     "start": "node express.js"
