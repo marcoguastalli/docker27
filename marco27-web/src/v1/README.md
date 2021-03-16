@@ -1,10 +1,13 @@
 ### build
 cd marco27-web/src/v1
 docker-compose up -d
+##### rebuild the marco27-web-nodejs image
+docker-compose up -d --build
 
 ### run
 docker-compose start
 docker-compose stop
+docker container restart marco27-web-nodejs
 
 ## play
 http://marco27.net/

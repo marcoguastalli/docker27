@@ -1,0 +1,11 @@
+FROM ubuntu:20.04
+# no input required
+ARG DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /var/nodejs
+RUN apt-get -y update && apt-get -y install nodejs npm yarn webpack
+RUN npm install
+
+EXPOSE 80
+
+CMD ["npm", "run", "start"]
