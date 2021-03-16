@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:13.2-alpine
+    container_name: marco27-web-postgres
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/data/postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-qwerty}
+      PGDATA: /data/postgres
+    networks:
+      - postgres-pgadmin
+
+  pgadmin:
+    image: dpage/pgadmin4:5.0
+    container_name: marco27-web-pgadmin
+    restart: unless-stopped
+    volumes:
+      - pgadmin-data:/root/.pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - postgres-pgadmin
+
+volumes:
+  postgres-data:
+  pgadmin-data:
+
+networks:
+  postgres-pgadmin:
+    driver: bridge
